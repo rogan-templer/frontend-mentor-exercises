@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function TipCalculationDisplay() {
   return (
-    <div className="rounded-lg bg-red p-4">
+    <div className="rounded-lg bg-teal-800 p-4">
       <div>
         <h1>Tip Amount</h1>
         <h3>/ person</h3>
