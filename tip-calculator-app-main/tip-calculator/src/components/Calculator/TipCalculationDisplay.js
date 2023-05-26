@@ -5,9 +5,9 @@ export default function TipCalculationDisplay({
   billTotal,
   numberOfPeople,
 }) {
-  console.log("tip:", billTotal);
+  console.log("tip:", tipPercentage);
 
-  const calculate
+  //  const calculate
 
   return (
     <div className="rounded-lg bg-teal-800 p-4 ">
