@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
-export default function TipCalculationDisplay({ formState }) {
+export default function TipCalculationDisplay({
+  tipPercentage,
+  billTotal,
+  numberOfPeople,
+}) {
+  console.log("tip:", billTotal);
+
+  const calculate
+
   return (
     <div className="rounded-lg bg-teal-800 p-4 ">
       <div className="flex flex-row">
