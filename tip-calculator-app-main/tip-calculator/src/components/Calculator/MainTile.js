@@ -6,37 +6,40 @@ import { DISPATCH_ACTION } from "./constants";
 export const TipFormContext = createContext({});
 
 const InitialFormState = {
-  fivePercent: 5/100,
-  tenPercent: 10/100,
-  fifteenPercent: 15/100,
-  twentyFivePercent: 25/100,
-  fiftyPercent: 50/100,
-  userChoice: ''
-}
+  billTotal: "",
+  fivePercent: "",
+  tenPercent: "",
+  fifteenPercent: "",
+  twentyFivePercent: "",
+  fiftyPercent: "",
+  customTipPercent: "",
+  numberOfPeople: "",
+};
 
 export default function MainTile() {
-  // useContext - look at the bonus calculator for an example on how you can do this.
   const [formState, dispatch] = useReducer(reducer, InitialFormState);
 
   const stateData = useContext(TipFormContext);
 
   return (
     <>
-    <TipFormContext.Provider value={formState}>
-      {console.log('formstate:', formState)}
-      <form>
-        <div className="rounded-lg bg-white p-4 flex flex-row">
-          <TipCalculationInputs />
-          <TipCalculation />
-        </div>
-      </form>
-    </TipFormContext.Provider>
+      <TipFormContext.Provider value={formState}>
+        {console.log("formstate:", formState)}
+        <form>
+          <div className="rounded-lg bg-white p-4 flex flex-row">
+            <TipCalculationInputs />
+            <TipCalculation />
+          </div>
+        </form>
+      </TipFormContext.Provider>
     </>
   );
 }
 
 function reducer(state, action) {
   switch (action.type) {
+    case DISPATCH_ACTION.addBillTotal:
+      return { ...state, billTotal: action.payload.billTotal };
     case DISPATCH_ACTION.addFivePercent:
       return { ...state, fivePercent: action.payload.fivePercent };
     case DISPATCH_ACTION.addTenPercent:
@@ -47,7 +50,9 @@ function reducer(state, action) {
       return { ...state, twentyFivePercent: action.payload.twentyFivePercent };
     case DISPATCH_ACTION.addFiftyPercent:
       return { ...state, fiftyPercent: action.payload.fiftyPercent };
-    case DISPATCH_ACTION.addUserChoice:
-      return { ...state, userChoice: action.payload.userChoice };
+    case DISPATCH_ACTION.addCustomTipPercent:
+      return { ...state, customTipPercent: action.payload.customTipPercent };
+    case DISPATCH_ACTION.addNumberOfPeople:
+      return { ...state, numberOfPeople: action.payload.numberOfPeople };
   }
 }
