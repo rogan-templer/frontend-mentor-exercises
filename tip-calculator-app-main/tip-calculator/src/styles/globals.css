@@ -25,3 +25,13 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@font-face {
+  font-family: "Outfit";
+  src: url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+}
+/* 
+h1 {
+  font-family: "Outfit";
+  src: url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+} */
