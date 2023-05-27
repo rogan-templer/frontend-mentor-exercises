@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import TipCalculation from "./TipCalculationDisplay";
 
-// Bin off the context/reducer etc as not required.
-// instead -> const [tipPercent, setTipPercent] = useState(0)
-// each button onClick setTippercent to new value
-// pass props of setTipPercent, billTotal, numberOfPeople to calculation display component.
-
 export default function MainTile() {
   const [tipPercentage, setTipPercentage] = useState(0);
   const [billTotal, setBillTotal] = useState(0);
   const [numberOfPeople, setNumberOfPeople] = useState(0);
+  const [customPercentage, setCustomPercentage] = useState(0);
 
   return (
     <>
@@ -39,9 +35,12 @@ export default function MainTile() {
             <button className="btn" onClick={() => setTipPercentage(0.5)}>
               50%
             </button>
-            <button className="btn" contentEditable="true">
-              Custom
-            </button>
+            <input
+              className="input input-bordered input-accent"
+              type="number"
+              placeholder="Custom"
+              onChange={(e) => setCustomPercentage(e.target.value)}
+            />
           </div>
           <h1>Number of people</h1>
           <input
@@ -55,6 +54,7 @@ export default function MainTile() {
           tipPercentage={tipPercentage}
           billTotal={billTotal}
           numberOfPeople={numberOfPeople}
+          customPercentage={customPercentage}
         />
       </div>
     </>

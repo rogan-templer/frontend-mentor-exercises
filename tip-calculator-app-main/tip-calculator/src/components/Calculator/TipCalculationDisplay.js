@@ -1,25 +1,34 @@
 import React, { useState } from "react";
+import { isNaN, isEmpty } from "lodash";
 
 export default function TipCalculationDisplay({
   tipPercentage,
   billTotal,
   numberOfPeople,
+  customPercentage,
 }) {
-  console.log("tip:", tipPercentage);
+  // console.log("tippy", typeof customPercentage);
 
-  //  const calculate
+  const tipPercentToUse = isEmpty(customPercentage)
+    ? tipPercentage
+    : customPercentage / 100;
+
+  const tipPerPerson = (billTotal * tipPercentToUse) / numberOfPeople;
+  const totalPerPerson = billTotal / numberOfPeople + tipPerPerson;
 
   return (
     <div className="rounded-lg bg-teal-800 p-4 ">
       <div className="flex flex-row">
         <h1>Tip Amount</h1>
         <h3>/ person</h3>
-        <h1>$0.00</h1>
+        <h1>{isNaN(tipPerPerson) ? `$0.00` : `$${tipPerPerson.toFixed(2)}`}</h1>
       </div>
       <div className="flex flex-row">
         <h1>Total</h1>
         <h3>/ person</h3>
-        <h1>$0.00</h1>
+        <h1>
+          {isNaN(totalPerPerson) ? `$0.00` : `$${totalPerPerson.toFixed(2)}`}
+        </h1>
       </div>
       <div className="flex flex-col">
         <button
