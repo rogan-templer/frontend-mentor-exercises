@@ -8,7 +8,7 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center p-24 bg-teal-100 ${inter.className}`}
     >
-      <div className="p-8">
+      <div className="p-8 md:w-32">
         <h1 className="font-custom font-bold text-2xl">SPLI</h1>
         <h1 className="font-custom font-bold text-2xl">TTER</h1>
       </div>

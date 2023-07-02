@@ -14,6 +14,12 @@ module.exports = {
       },
       fontFamily: {
         custom: ['Outfit', 'sans-serif']
+      },
+      colors: {
+        'darkTeal': '#115e59',
+        'hoverTeal': '#2dd4bf',
+        'displayTeal': '#14b8a6',
+        'whiteText': '#fafafa'
       }
     },
   },
