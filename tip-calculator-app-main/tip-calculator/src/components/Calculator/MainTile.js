@@ -9,8 +9,8 @@ export default function MainTile() {
 
   return (
     <>
-      <div className="rounded-lg bg-white p-4 flex flex-row">
-        <div className="flex flex-col p-10">
+      <div className="rounded-lg bg-white p-4 flex flex-col md:flex-row md:flex-wrap w-full">
+        <div className="flex flex-col p-10 md:w-1/2 lg:w-2/3">
           <h1 className="font-custom font-semibold pb-1.5">Bill</h1>
           <input
             className="input input-bordered input-accent w-full max-w-lg text-right"
@@ -21,7 +21,7 @@ export default function MainTile() {
           <h1 className="font-custom font-semibold pt-4 pb-1.5">
             Select tip %
           </h1>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             <button
               className="btn bg-teal-800 hover:bg-teal-400"
               onClick={() => setTipPercentage(0.05)}
