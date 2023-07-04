@@ -13,7 +13,7 @@ export default function MainTile() {
         <div className="flex flex-col p-10 md:w-1/2 lg:w-2/3">
           <h1 className="font-custom font-semibold pb-1.5">Bill</h1>
           <input
-            className="input input-bordered input-accent w-full max-w-lg text-right"
+            className="input input-bordered input-accent w-full  text-right"
             type="number"
             placeholder="0"
             onChange={(e) => setBillTotal(e.target.value)}
@@ -67,12 +67,14 @@ export default function MainTile() {
             onChange={(e) => setNumberOfPeople(e.target.value)}
           />
         </div>
-        <TipCalculation
-          tipPercentage={tipPercentage}
-          billTotal={billTotal}
-          numberOfPeople={numberOfPeople}
-          customPercentage={customPercentage}
-        />
+        <div className="grow">
+          <TipCalculation
+            tipPercentage={tipPercentage}
+            billTotal={billTotal}
+            numberOfPeople={numberOfPeople}
+            customPercentage={customPercentage}
+          />
+        </div>
       </div>
     </>
   );
